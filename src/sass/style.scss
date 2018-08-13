@@ -1,0 +1,11 @@
+@import '_common';
+//声明变量
+$perfix:app;
+$font-size:30px;
+
+.#{$perfix}{
+    &-han{
+        font-size: $font-size;
+        margin: 0 0 0 10px;
+    }
+}
