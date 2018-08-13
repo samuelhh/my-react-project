@@ -97,6 +97,7 @@ class Hanhui extends Component {
         //使用 clearInterval() 来停止执行
         clearInterval(this.timeId);
     }
+    //test20180113
 }
 export default Hanhui;
 
