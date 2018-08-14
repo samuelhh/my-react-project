@@ -3,8 +3,9 @@ import AppDispatcher from '../AppDispatcher';
 import * as ActionTypes from '../ActionType';
 
 const CHANGE_EVENT = 'changed';
+
 const counterValues = {
-    'First': 0,
+    'First': 5,
     'Second': 10,
     'Thrid': 20
 };
@@ -33,11 +34,11 @@ const CounterStore = Object.assign({}, EventEmitter.prototype, {
 
 CounterStore.dispatchToken = AppDispatcher.register((action) => {
     if (action.type === ActionTypes.INCREMENT) {
-        counterValues[action.couterCaption] ++;
+        counterValues[action.counterCaption]++;
         CounterStore.emitChange();
     }
     else if (action.type === ActionTypes.DECREMENT) {
-        counterValues[action.couterCaption] --;
+        counterValues[action.counterCaption]--;
         CounterStore.emitChange();
     }
 });

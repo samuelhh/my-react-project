@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Counter from "./Counter";
-// import Summary from "./summary";
+import Summary from "./summary";
 
 export default class ControlPanel extends Component {
     render() {
@@ -9,6 +9,7 @@ export default class ControlPanel extends Component {
                 <Counter caption="First" />
                 <Counter caption="Second" />
                 <Counter caption="Thrid" />
+                <Summary />
             </React.Fragment>
         );
     }

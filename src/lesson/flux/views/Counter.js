@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as Actions from "../Actions";
 import CounterStore from "../stores/CounterStore";
+import "../../../css/bootstrap.min.css";
 
 
 export default class Counter extends Component {
@@ -14,14 +15,6 @@ export default class Counter extends Component {
         this.state = {
             count: CounterStore.getCounterValues()[props.caption]
         }
-    }
-
-
-    onChange() {
-        const newCount = CounterStore.getCounterValues()[this.props.caption];
-        this.setState({
-            count: newCount
-        });
     }
 
     onClickIncrementButton() {
@@ -42,17 +35,23 @@ export default class Counter extends Component {
         );
     }
 
-   
+    onChange() {
+        const newCount = CounterStore.getCounterValues()[this.props.caption];
+        this.setState({
+            count: newCount
+        });
+    }
+
     //生命周期函数
     shouldComponentUpdate(nextProps, nextState) {
         return (nextProps.caption !== this.props.caption) || (nextState.count !== this.state.count);
     }
     componentDidMount() {
         CounterStore.addChangeListener(this.onChange);
-        console.log("did");
     }
     componentWillMount() {
         CounterStore.removeChangeListener(this.onChange);
-        console.log("will");
     }
+
+
 }

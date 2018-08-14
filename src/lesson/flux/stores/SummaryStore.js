@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher';
 import * as ActionTypes from '../ActionType';
 import CounterStore from './CounterStore';
-import { EventEimitter } from 'events';
+import { EventEmitter } from 'events';
 
 const CHANGE_EVENT = 'changed';
 
@@ -16,7 +16,7 @@ function computeSummary(counterValues) {
     return summary;
 }
 
-const SummaryStore = Object.assign({}, EventEimitter.prototpe, {
+const SummaryStore = Object.assign({}, EventEmitter.prototype, {
     getSummary: function () {
         return computeSummary(CounterStore.getCounterValues());
     },
@@ -32,7 +32,7 @@ const SummaryStore = Object.assign({}, EventEimitter.prototpe, {
 });
 
 SummaryStore.dispatchToken = AppDispatcher.register((action) => {
-    if ((action.type == ActionTypes.INCREMENT) || (action.type === ActionTypes.DECREMENT)) {
+    if ((action.type === ActionTypes.INCREMENT) || (action.type === ActionTypes.DECREMENT)) {
         AppDispatcher.waitFor([CounterStore.dispatchToken]);
         SummaryStore.emitChange();
     }
