@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as Action from "../Actions";
+import * as Actions from "../Actions";
 import CounterStore from "../stores/CounterStore";
 
 
@@ -25,10 +25,10 @@ export default class Counter extends Component {
     }
 
     onClickIncrementButton() {
-        Action.increment(this.props.caption);
+        Actions.increment(this.props.caption);
     }
     onClickDecrementButton() {
-        Action.decrement(this.props.caption);
+        Actions.decrement(this.props.caption);
     }
 
     render() {
@@ -42,14 +42,17 @@ export default class Counter extends Component {
         );
     }
 
+   
     //生命周期函数
     shouldComponentUpdate(nextProps, nextState) {
         return (nextProps.caption !== this.props.caption) || (nextState.count !== this.state.count);
     }
     componentDidMount() {
         CounterStore.addChangeListener(this.onChange);
+        console.log("did");
     }
     componentWillMount() {
         CounterStore.removeChangeListener(this.onChange);
+        console.log("will");
     }
 }

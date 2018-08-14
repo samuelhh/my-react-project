@@ -8,7 +8,7 @@ export default class ControlPanel extends Component {
             <React.Fragment>
                 <Counter caption="First" />
                 <Counter caption="Second" />
-                <Counter caption="Third" />
+                <Counter caption="Thrid" />
             </React.Fragment>
         );
     }

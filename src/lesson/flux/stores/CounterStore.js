@@ -33,11 +33,11 @@ const CounterStore = Object.assign({}, EventEmitter.prototype, {
 
 CounterStore.dispatchToken = AppDispatcher.register((action) => {
     if (action.type === ActionTypes.INCREMENT) {
-        counterValues[action.couterCaption]++;
+        counterValues[action.couterCaption] ++;
         CounterStore.emitChange();
     }
     else if (action.type === ActionTypes.DECREMENT) {
-        counterValues[action.couterCaption]--;
+        counterValues[action.couterCaption] --;
         CounterStore.emitChange();
     }
 });
