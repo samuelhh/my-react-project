@@ -42,5 +42,5 @@ CounterStore.dispatchToken = AppDispatcher.register((action) => {
         CounterStore.emitChange();
     }
 });
-
+//shuabaobao
 export default CounterStore;
