@@ -9,4 +9,5 @@ const initValues = {
 }
 
 const store = createStore(reducer, initValues);
+
 export default store;
