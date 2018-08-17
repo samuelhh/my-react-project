@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import reducer from './Reducer';
 
 const initValues = {
-    'First': 0,
+    'First': 5,
     'Second': 10,
     'Third': 20
 };

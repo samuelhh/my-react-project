@@ -49,12 +49,15 @@ export default class Counter extends React.Component {
     }
 
     //生命周期函数
+    //更新
     shouldComponentUpdate(nextProps, nextState) {
         return (nextProps.caption !== this.props.caption) || (nextState.value !== this.state.value);
     }
+    //装载
     componentDidMount() {
         store.subscribe(this.onChange);
     }
+    //卸载
     componentWillUnmount() {
         store.unsubscribe(this.onChange);
     }

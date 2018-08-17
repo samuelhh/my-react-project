@@ -1,7 +1,7 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes';
 
-function reducer(state, action) {
-    const { counterCaption } = action;
+export default (state, action) => {
+    const { counterCaption } = state;
 
     switch (action.type) {
         case ActionTypes.INCREMENT:
@@ -12,5 +12,3 @@ function reducer(state, action) {
             return state;
     }
 }
-
-export default reducer;

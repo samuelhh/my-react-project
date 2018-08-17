@@ -9,6 +9,7 @@ import store from '../Store';
 //         );
 //     }
 // }
+
 //简写的傻瓜组件
 function Summary(props) {
     return (
