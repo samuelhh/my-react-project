@@ -2,17 +2,29 @@ import React from 'react';
 import store from '../Store';
 import * as Actions from '../Actions';
 
-class Counter extends React.Component {
-    render() {
-        const { caption, onIncrement, onDecrement, vules } = this.props;
-        return (
-            <div>
-                <button onClick={onIncrement}>+</button>
-                <button onClick={onDecrement}>-</button>
-                <span>{caption} count: {vules}</span>
-            </div>
-        );
-    }
+//正常傻瓜组件写法
+// class Counter extends React.Component {
+//     render() {
+//         const { caption, onIncrement, onDecrement, value } = this.props;
+//         return (
+//             <div>
+//                 <button onClick={onIncrement}>+</button>
+//                 <button onClick={onDecrement}>-</button>
+//                 <span>{caption} count: {value}</span>
+//             </div>
+//         );
+//     }
+// }
+
+//傻瓜组件简写
+function Counter({ caption, onIncrement, onDecrement, value }) {
+    return (
+        <div>
+            <button onClick={onIncrement}>+</button>
+            <button onClick={onDecrement}>-</button>
+            <span>{caption} count: {value}</span>
+        </div>
+    );
 }
 
 class CounterContainer extends React.Component {
@@ -29,7 +41,7 @@ class CounterContainer extends React.Component {
 
     getOwnState() {
         return {
-            value: store.getSate()[this.props.caption]
+            value: store.getState()[this.props.caption]
         };
     }
     onChange() {
@@ -58,10 +70,10 @@ class CounterContainer extends React.Component {
         return (nextProps.caption !== this.props.caption) || (nextState.value !== this.state.value);
     }
     componentDidMount() {
-        store.subcribe(this.onChange);
+        store.subscribe(this.onChange);
     }
     componentWillUnmount() {
-        store.unsubcribe(this.onChange);
+        store.unsubscribe(this.onChange);
     }
 
 }
